@@ -1,53 +1,8 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="odometer-theme-train-station.css" />
-<style>
-.odometer {
-  font-size: 80px;
-  text-align: center;
-}
-
-.odometer::before{
-    content:'';
-    display:inline-block;
-    height:100%;
-    vertical-align:middle;
-    width:0px;
-}
-
-</style>
-<script>
-window.odometerOptions = {
-  format: '(ddd).dd'
-};
-</script>
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="odometer.js"></script>
-
-<body bgcolor="black">
-<center><div class="odometer">8888</div></center>
-
-<script>
-
-let val = 8888;
-
-document.body.onkeyup = function(e){
-    if(e.keyCode == 32){
-
-      if (val === 8888) {
-         val = 2019
-      } else if (val === 2019) {
-         val = 1970
-      } else if (val === 1970) {
-         val = 1980
-      } else if (val === 1980) {
-         val = 2150
-      }
-
-      setTimeout(function(){
-        $('.odometer').html(val);
-      }, 0);
-    }
-}
-</script>
-</body>
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
